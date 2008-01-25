@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Load This Page to Blow Away Accumulated Gears Data</title>
+    <script type="text/javascript" src="Scripts/gears_init.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+            var server = google.gears.factory.create('beta.localserver', '1.0');
+            server.removeStore('YourTimesheets');
+            var db = google.gears.factory.create('beta.database', '1.0');
+            db.open('YourTimesheets');
+            db.execute('DROP TABLE IF EXISTS Entries');
+    </script>
+</body>
+</html>

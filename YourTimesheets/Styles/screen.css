@@ -1,0 +1,133 @@
+﻿body 
+{
+	font-family: Lucida Sans Unicode, Helvetica, Sans-Serif;
+	margin: 0;
+	padding: 0;
+}
+
+h1
+{
+	letter-spacing: -0.1em;
+	background-color: #0063a5;
+	color: #fff;
+	margin: 0;
+	padding: 20px;
+}
+
+h2
+{
+	font-size: 18px;
+	font-weight: normal;
+	margin: 0;
+	padding: 20px 0 10px 0;
+}
+
+#Message 
+{
+	padding: 10px 20px;
+}
+
+.info 
+{
+	background-color: #9ED8FF;
+}
+
+.error 
+{
+	background-color: #f99;
+}
+
+.info .type 
+{
+	background-image: url(../Images/information.png);
+}
+
+.info .error
+{
+	background-image: url(../Images/exclamation.png);
+}
+
+#Message .type 
+{
+	float: left;
+	width: 30px;
+	height: 0;
+	padding: 20px 0 0 0;
+	overflow: hidden;
+	background-position: center top;
+	background-repeat: no-repeat;
+}
+
+#Message .message
+{
+	margin: 0 0 0 30px;
+	font-size: 11px;
+}
+
+#Message .shelf 
+{
+	clear: both;
+}
+
+#NewEntry 
+{
+	width: 250px;
+	float: left;
+	padding: 0 10px 20px 20px;
+}
+
+.field 
+{
+	padding: 0 0 5px 0;
+}
+
+label 
+{
+	display: block;
+	font-size: 12px;
+	padding: 0 0 2px 0;
+}
+
+.checkbox label 
+{
+	display: inline;
+}
+
+.field input.text,
+.field textarea
+{
+	width: 240px;
+}
+
+.field input.number
+{
+	width: 30px;
+}
+
+td, th
+{
+	font-size: 12px;
+	border: 1px #fff solid;
+	padding: 5px;
+	vertical-align: top;
+}
+
+th 
+{
+	background-color: #0063a5;
+	color: #fff;
+	font-weight: normal;
+	text-align: left;
+}
+
+td
+{
+	background-color: #9ED8FF;
+}
+
+#Footer 
+{
+	clear: both;
+	font-size: 11px;
+	padding: 20px;
+}
