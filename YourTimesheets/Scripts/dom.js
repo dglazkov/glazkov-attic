@@ -33,7 +33,7 @@
 	                }
 	                
 	                function fireOnInputChange() {
-                        me.oninputchange({ type: input.className, value: input.value });
+                        me.oninputchange(input.className, input.value);
 	                }
 	            });
 	        }

@@ -1,21 +1,20 @@
 ﻿<%@ Page Language="C#" ViewStateEncryptionMode="never" EnableViewState="false" EnableEventValidation="false" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head>
-    <title>This is Your Timesheets</title>
+    <title>These are Your Timesheets</title>
     <script type="text/javascript" src="Scripts/gears_init.js"></script>
-    <script type="text/javascript" src="Scripts/breadboard.js"></script>
     <script type="text/javascript" src="Scripts/dom.js"></script>
     <script type="text/javascript" src="Scripts/database.js"></script>
     <script type="text/javascript" src="Scripts/store.js"></script>
     <script type="text/javascript" src="Scripts/sync.js"></script>
     <script type="text/javascript" src="Scripts/validator.js"></script>
+    <script type="text/javascript" src="Scripts/monitor.js"></script>
     <script type="text/javascript" src="Scripts/gearification.js"></script>
-    <script type="text/javascript" src="Scripts/online.js"></script>
     <link type="text/css" rel="stylesheet" href="Styles/screen.css" />
 </head>
 <body>
     <form id="YourTimesheets" runat="server">
-        <h1>This is Your Timesheets</h1>
+        <h1>These are Your Timesheets</h1>
         <div id="NewEntry">
             <h2>New Entry</h2>
             <asp:SqlDataSource ID="Entries" runat="server" ConnectionString="<%$ ConnectionStrings:YourTimesheets %>"
