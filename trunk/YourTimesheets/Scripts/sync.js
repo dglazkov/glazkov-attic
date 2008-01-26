@@ -28,7 +28,7 @@
                         me.oncomplete();
                     }
                     else {
-                        me.onentryuploaded({ id: text });
+                        me.onentryuploaded(text);
                     }
                 }
             }

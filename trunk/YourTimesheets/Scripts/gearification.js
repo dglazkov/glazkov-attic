@@ -1,13 +1,10 @@
-﻿// breadboard is global, so that online.js can fire an event
-window.breadboard = new Breadboard(); 
-
-// .. the rest is tucked away into a private scope
-// using anonymous function
+﻿// tucked away into a private scope using anonymous function
 // ideally, all JS files should go here,
 // but I decided to keep them split up for readability
 (function() {
 
     var online;
+    var initialized;
     var needsRefresh;
     
     var db = new Database();
@@ -15,50 +12,16 @@ window.breadboard = new Breadboard();
     var dom = new DOM();
     var sync = new Sync();
     var validator = new Validator();
+    var monitor = new Monitor();
     
-    // connect DOM events to breadboard
-    dom.onsubmit = breadboard.hook('submit');
-    dom.oninputchange = breadboard.hook('change');
-    dom.onready = breadboard.hook('ready');
-    
-    // connect Sync events to breadboard
-    sync.oncomplete = breadboard.hook('harmony');
-    sync.onentryuploaded = breadboard.hook('uploaded');
-    sync.onerror = breadboard.hook('error');
- 
-    // what to do when page is ready
-    breadboard.listen('ready', function() {
-        // detect if gears are present and bail if not
-        if (!window.google || !google.gears || !store.open() || !db.open()) {
-            return;
-        }
-        
-        dom.init();
-        
-        if (online) {
-            sync.start(dom.getPostbackUrl());
-        }
-        
-        db.readEntries(dom.offlineTableWriter);
-        
-        dom.initFields(validator.seedGoodValue);
-        
-        dom.indicate('info', 
-            online ? 
-            'Gears are ready, waiting for the glorious opportunity' : 
-            'This page is offline. Entries will be synchronized when it goes back online');
-    });
-    
-    // fires when the page is definitively online
-    breadboard.listen('online', function() {
-        online = true;
-    });
+    // connect DOM events
     
     // what to do when an entry was submitted
-    breadboard.listen('submit', function() {
+    dom.onsubmit = function() {
         // submit data into the Gears database
         // while the application is offline
         if (online) {
+            store.refresh();
             return true;
         }
         try {
@@ -67,31 +30,69 @@ window.breadboard = new Breadboard();
         } catch (e) { 
             dom.indicate('error', 'Submission failed, because ' + e.message);
         }
-    });
+        return false;
+    }
     
     // what to do when a field value has changed
-    breadboard.listen('change', function() {
-        dom.setSubmitEnabled(validator.isValid(this.type, this.value));
-    });
+    dom.oninputchange = function(type, value) {
+        dom.setSubmitEnabled(validator.isValid(type, value));
+    }
     
-    // what do do when an offline entry was uploaded to the server
-    breadboard.listen('uploaded', function() {
-        needsRefresh = true;
-        dom.removeRow(this.id);
-    });
+    // what to do when page is ready
+    dom.onready = function() {
+        // detect if gears are present and bail if not
+        // bailing out is a one of the options
+        // another option would be suggest installing gears
+        if (!window.google || !google.gears || !store.open() || !db.open()) {
+            return;
+        }
+        
+        monitor.start();
+        
+        dom.init();
+        
+        db.readEntries(dom.offlineTableWriter);
+        
+        dom.initFields(validator.seedGoodValue);
+
+        dom.indicate('info', 'Waiting for the monitor to check connection');
+    }
     
-    // what do to when harmony (offline and online entries synchronized) is achieved. Ommm...
-    breadboard.listen('harmony', function() {
+    // connect Monitor events
+    
+    monitor.onconnectionchange = function(connected) {
+        online = connected;
+        if (online) {
+            dom.indicate('info', 'This page is online. Entries will be entered directly');
+            sync.start(dom.getPostbackUrl());
+        }
+        else {
+            dom.indicate('info', 'This page is offline. Entries will be synchronized when it goes back online');
+        }
+    }
+    
+    // connect Sync events
+
+    // what do to when harmony (offline and online entries synchronized) 
+    // is achieved. Ommm...
+    sync.oncomplete = function() {
         if (needsRefresh) {
             dom.removeOfflineTable();
             store.refresh();
             dom.indicate('info', 'Synchronization complete. Please reload the page to see the results.');
         }
-    });
+    }
+
+    // what do do when an offline entry was uploaded to the server
+    sync.onentryuploaded = function(id) {
+        needsRefresh = true;
+        dom.removeRow(id);
+    }
     
-    // what to do when an error has occured
-    breadboard.listen('error', function() {
-        dom.indicate('error', this.message);
-    });
-            
+    // what to do when a synchronization error has occured
+    sync.onerror = function(message) {
+        dom.indicate('error', message);
+    }
+ 
+                
 }());

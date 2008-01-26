@@ -17,5 +17,7 @@ public partial class _Default : System.Web.UI.Page
     protected void InsertNewEntry(object sender, EventArgs e)
     {
         Entries.Insert();
+        // Redirect to self to avoid make sure the insertion ends on a GET
+        Response.Redirect(Request.Url.AbsoluteUri, false);
     }
 }
