@@ -1,5 +1,6 @@
 ﻿    
-    // encapsulates  DOM manipulation and events
+    //  encapsulates  DOM manipulation and events
+    //  view
     function DOM() {
         var OFFLINE_SHEET_ID = 'OfflineSheet';
         var FORM_ID = 'YourTimesheets';
@@ -17,10 +18,21 @@
         var submitEnabled = true;        
         
         // initialize with empty event handlers
+        
+        //  called when the browser DOM is ready to be worked with
         this.onready = nil;
+        
+        //  called when one of the inputs changes. Sends as parameters:
+        //      type : String, type of the input
+        //      value : String, value of the input
         this.oninputchange = nil;
+        
+        //  called when the form is submitted.
+        //      if it returns Boolean : false, the submission is cancelled
+        //      submission proceeds, otherwise
         this.onsubmit = nil;
         
+        //  hooks up DOM event handlers
 	    this.init = function() {
 	        // hook up change event for each input
 	        for(var i = 0; i < FIELDS.length; i++) {
@@ -43,8 +55,11 @@
             });
         }
         
-        // loads (or reloads) entries, entered offline
-        // by creating and populating a table just above the regular timesheets table
+        //  loads (or reloads) entries, entered offline by creating
+        //  and populating a table just above the regular timesheets table
+        //  has the same signature as the "writer" parameter of the
+        //  Database.readEntries(writer)... because that's what it's being
+        //  used by
         this.offlineTableWriter = {
             open: function() {
                 this.html = [];
@@ -52,8 +67,8 @@
             write: function(r, i, next) {
                 if (i == 0) {
                     // if there are indeed rows in the table
-                    // create table header by jamming together FIELDS and ROW_TMPL
-                    // and then replacing all <td>s to <th>s
+                    // create table header by jamming together FIELDS and 
+                    // ROW_TMPL and then replacing all <td>s to <th>s
                     this.html.push('<h2>Entered Offline</h2><table>');
                     ROW_TMPL[1] = '0';
                     for(var i = 0; i < FIELDS.length; i++) {
@@ -66,6 +81,8 @@
                     ROW_TMPL[i*2 + 3] = r[FIELDS[i]];
                 }
                 this.html.push(ROW_TMPL.join(''));
+                // have to make this call to assure proper operation
+                // of the Database.readEntries method
                 next();
             },
             close: function() {
@@ -86,7 +103,10 @@
             }
         }
         
-        // provide capability to show an error or info message
+        //  provide capability to show an error or info message. Takes:
+        //      type : String, either 'error' or 'info' to indicate the type of
+        //          the message
+        //      text : String, text of the message message
         this.indicate = function(type, text) {
             var message;
             if (!gid(MESSAGE_ID, function(el) {
@@ -102,7 +122,9 @@
             message.innerHTML = MESSAGE_TMPL.join('');
         }
         
-        // grab relevant input values from the form
+        //  grab relevant input values from the form inputs
+        //      returns : Array of parameters, coincidentally in exactly the
+        //      format that Database.writeEntry needs
         this.collectFieldValues = function() {
             var params = [];
             var data = [];
@@ -141,11 +163,12 @@
             }
             
             function appendData(key, value) {
-                return data.push(encodeURIComponent(key) + '=' + encodeURIComponent(value));
+                return data.push(encodeURIComponent(key) + '=' +
+                    encodeURIComponent(value));
             }
         }
         
-        // obtain postback URL
+        //  returns : String, URL that is set in of the form action attribute
         this.getPostbackUrl = function() {
             var url;
             gid(FORM_ID, function(form) {
@@ -155,21 +178,23 @@
         }
         
         
-        // remove a row from the offline table
+        //  remove a row from the offline table. Takes:
+        //      id : String, id of the entry 
         this.removeRow = function(id) {
             gid('r' + id, function(row) {
                 del(row);
             });
         }
         
-        // remove entire offline table
+        //  remove the entire offline table
         this.removeOfflineTable = function() {
             gid(OFFLINE_SHEET_ID, function(table) {
                 del(table);
             });
         }
         
-        // enable or disable submit
+        //  enable or disable submit. Takes:
+        //      enable : Boolean, true to enable submit button, false to disable   
         this.setSubmitEnabled = function(enable) {
             if (submitEnabled != enable) {
                 submitEnabled = enable;
@@ -180,6 +205,10 @@
         }
         
         // iterate through fields and initialize field values, according to type
+        // Takes:
+        //      action : Function, which is given:
+        //          type : String, the type of the input
+        //          and expected to return : String, a good initial value
         this.initFields = function(action) {
             for(var i = 0; i < FIELDS.length; i++) {
                 gid(FIELDS[i], function(input) {
@@ -198,9 +227,11 @@
 		    // Dean Edwards (http://dean.edwards.name/)
 		    /*@cc_on @*/
 		    /*@if (@_win32)
-			    document.write('<script id=__ie_onload defer src=//:><\/script>');
-			    var script = document.getElementById('__ie_onload');
-			    script.onreadystatechange = function() { this.readyState == 'complete' && fire(); }
+                document.write('<script id=__ie_onload defer src=//:><\/script>');
+                var script = document.getElementById('__ie_onload');
+                script.onreadystatechange = function() { 
+                    this.readyState == 'complete' && fire(); 
+                }
 		    @else */
 		    wait(30000, 100)
 		    /*@end @*/
@@ -217,7 +248,9 @@
 				    if (fired) {
 					    window.clearInterval(interval);
 					    // John Resig via Dean Edwards (http://dean.edwards.name/)
-				    } else if ((safari && /loaded|complete/.test(document.readyState))||timeout < 0) {
+				    } else if ((safari && 
+				        /loaded|complete/.test(document.readyState)) || 
+				        timeout < 0) {
 					    window.setTimeout(fire, 0);
 				    }
 				    timeout -= delta;
@@ -236,7 +269,8 @@
         }
         
         function insb(el, id) {
-            var result = el.parentNode.insertBefore(document.createElement('div'), el);
+            var result = el.parentNode.insertBefore(
+                document.createElement('div'), el);
             result.id = id;
             return result;
         }

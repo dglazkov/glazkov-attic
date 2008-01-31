@@ -1,11 +1,17 @@
 ﻿
     // provides connection monitoring
+    // controller
     function Monitor() {
-        // triggered when connection changes
-        this.onconnectionchange = nil;
-        
+
         var me = this;
     
+        //  triggered when connection changes
+        //  sends as parameter:
+        //      online : Boolean, true if connection became available,
+        //          false if connection is broken
+        this.onconnectionchange = nil;
+    
+        // starts the monitoring
         this.start = function() {
             try {
                 wp = google.gears.factory.create('beta.workerpool', '1.0');

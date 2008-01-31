@@ -1,5 +1,6 @@
 ﻿   
     // encapsulates dealing with LocalServer
+    // model
     function Store() {
         var STORE_NAME = 'YourTimesheets';
         var ASSETS = [ 
@@ -20,7 +21,9 @@
         var store;
         var server;
         
-        // opens store and caches assets if this is the first time
+        //  opens store and captures application assets if not captured already
+        //      returns : Boolean, true if LocalServer and ResourceStore 
+        //          instance are successfully created, false otherwise
         this.open = function() {
             try {
                 server = google.gears.factory.create('beta.localserver', '1.0');
@@ -36,10 +39,13 @@
             return true;
         }
         
+        //  forces refresh of the ResourceStore
         this.refresh = function() {
             server.removeStore(STORE_NAME);
         }
-        // capture callback, empty because we really don't care when capture completes
+        
+        //  capture callback, empty because we really don't care when capture 
+        //  completes
         function captureCallback() {}
     }
     
