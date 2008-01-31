@@ -4,12 +4,21 @@
     function Sync() {
         var wp;
         var id;
-        
         var me = this;
+
+        //  called when a synchronization error has occured. Sends:
+        //      message : String, the message of the error
         this.onerror = nil;
+        
+        //  called when the synchronization is complete.
         this.oncomplete = nil;
+        
+        // called when an entry was uploaded to the server. Sends:
+        //      id : String, the rowid of the entry
         this.onentryuploaded = nil;
         
+        //  starts synchronization. Takes:
+        //      url : String, the url to which to replay POST requests
         this.start = function(url) {
             try {
                 wp = google.gears.factory.create('beta.workerpool', '1.0');
@@ -19,10 +28,11 @@
             }
             wp.onmessage = function(a, b, message) {
                 if (message.sender == id) {
-                    // only two message types: [f]ailure or [id] of successfully sync'd entry
+                    // only two message types: [f]ailure or [id] of successfully
+                    // sync'd entry
                     var text = message.text;
                     if (text == 'f') {
-                        me.onerror({ message: 'Synchronization failure. Any invalid entries were discarded.' });
+                        me.onerror('Synchronization failure. Any invalid entries were discarded.');
                     }
                     else if (text == 'd') {
                         me.oncomplete();
@@ -52,9 +62,11 @@
                 db.readEntries({
                     open: function() {},
                     write: function(p, i, next) {
-                        var request = google.gears.factory.create('beta.httprequest', '1.0');
+                        var request = google.gears.factory.create(
+                            'beta.httprequest', '1.0');
                         request.open('POST', url);
-        			    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        			    request.setRequestHeader(
+        			        'Content-Type', 'application/x-www-form-urlencoded');
                         request.onreadystatechange = function() {
                             if (request.readyState == 4) {
                                 if (request.status == 200) {
