@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+	<ModulePrefs
+		title="Twitter"
+		description="OpenSocial, meet Twitter">
+		<Require feature="opensocial-0.5"/>
+		<Require feature="dynamic-height"/>
+	</ModulePrefs>
+	<UserPref
+		name="userid"
+		display_name="Twitter Username"
+		datatype="string"
+		required="true" />
+	<Content type="html">
+	<![CDATA[
+		<script type='text/javascript' src='http://estradacms.com/opensocial/scripts/twitter.js'></script>
+		<style>
+			@import url('http://estradacms.com/opensocial/styles/twitter.css');
+		</style>
+		<div id="twitter-message"></div>
+		<div id="twitter-panel"></div>
+ 	]]>
+  </Content>
+</Module>
+

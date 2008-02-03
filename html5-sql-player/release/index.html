@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>HTML5 SQL Player</title>
+    <link href="styles/screen.css" rel="stylesheet" type="text/css" />
+    <link href="scripts/worker.js" type="text/javascript" rel="worker" />
+    <script type="text/javascript" src="http://www.google-analytics.com/urchin.js"></script>
+    <script type="text/javascript" src="scripts/gears_init.js"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
+</head>
+<body>
+    <h1>HTML5 SQL Player</h1>
+    <div id="requirements">
+        <h2>Requirements</h2>
+        <p>
+            A browser that supports Javascript and <a href="http://code.google.com/apis/gears/">Google Gears</a> version 0.2.2 or later is required to run this player.
+            Check your browser settings to make sure that you have Javascript enabled and the correct version of Google Gears <a href="http://code.google.com/p/google-gears/downloads/list">installed</a>.
+        </p>
+    </div>
+    <div id="help">
+        <h2>Overview</h2>
+        <p>
+            This player is meant to be a testing and idea-forming ground for the <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/section-sql.html">Client-side Database Storage</a>, a new
+            functionality specified by the <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/">HTML5</a> draft.
+        </p>
+        <p>
+            You can try this functionality right here in the browser. Type (or paste from your favorite editor) Javascript code in
+            the text box and hit <q>Play</q> to see the results.
+        </p>
+        <p>
+            It's important to know that your code will be executed outside of the document context, in a separate thread. As such,
+            none of the DOM objects will be available to you, except for the <code>window</code> object, and this object only
+            implements the <code>openDatabase</code> method from the spec and has the <code>console</code> object for printing results.
+            That's not much, but should be enough to run some SQL queries and get an idea or two about the spec.
+        </p>
+        <p>
+            The <code>console</code> object is modeled after the <a href="http://www.getfirebug.com/">Firebug</a> <a href="http://www.getfirebug.com/console.html">console</a> object and supports
+            <code>log</code>, <code>debug</code>, <code>error</code>, and <code>info</code> methods.
+        </p>
+    </div>
+    <div id="development">
+        <h2>Support and Development</h2>
+        <p>
+            I would really like to keep improving this player and let it evolve with the specification. Since the spec is young, this may be a bit hard with
+            the limited time I have to spend on this project. Nevertheless, I am looking forward to the challenges, and will try to stay nimble.
+        </p>
+        <p>    
+            Though I don't have the bandwidth to
+            provide fully-fledged support, I encourage you to use <a href="http://www.whatwg.org/">WHATWG</a> discussion channels to ask questions pertaining the spec,
+            dig into the Gears <a href="http://code.google.com/apis/gears/">site</a> and <a href="http://groups.google.com/group/google-gears/">group</a> to talk with developers about specific capabilities, and sure,
+            bug <span class="vcard"><a class="mail fn" rel="me" href="mailto:dimitri@glazkov.com"><abbr title="Dimitri Glazkov">me</abbr></a></span> if you have something to contribute.
+        </p>
+    </div>
+    <div id="credits">
+        <h2>Credits and License</h2>
+        <p>
+            The HTML5 SQL player is made possible by <a href="http://code.google.com/apis/gears/">Google Gears</a>,
+            specifically the <a href="http://code.google.com/apis/gears/api_workerpool.html">WorkerPool</a> and <a href="http://code.google.com/apis/gears/api_database.html">Database</a> modules.
+            The icons are provided by <a href="http://famfamfam.com/">FamFamFam</a>.
+        </p>
+        <p>
+            The player's code is licensed under the terms of the <a rel="license" href="http://creativecommons.org/licenses/by/3.0/us/">Creative Commons 3.0</a> license.
+            Obviously, <a href="http://code.google.com/apis/gears/">Google Gears</a> and <a href="http://whatwg.org/">HTML5</a> have their own copyright and licensing terms.
+        </p>
+        <p>
+            Special thanks to <a href="http://blog.youngpup.net/">Aaron</a> and <a href="http://erik.eae.net/">Erik</a> for their guidance and providing simple answers to complex questions.
+        </p>
+    </div>
+    <script type="text/javascript">
+        _uacct = "UA-317276-5";
+        urchinTracker();
+    </script>
+</body>
+</html>

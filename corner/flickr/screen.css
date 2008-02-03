@@ -1,0 +1,12 @@
+#place a
+{
+	display: block;
+	margin: 10px;
+}
+
+#place img
+{
+	border: 1px solid #333;
+	width: 75px;
+	height: 75px;
+}

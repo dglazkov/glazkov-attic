@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Komodo Project File - DO NOT EDIT -->
+<project id="dc618cf6-e485-4d80-9088-f97e0fd46f39" kpf_version="4" name="glazkov.kpf">
+<file id="44af3ea5-6ac2-43e9-8371-4c8ebf849fec" idref="dc618cf6-e485-4d80-9088-f97e0fd46f39" name="blog.html" url="blog.html">
+</file>
+<file id="9c5b10d7-2207-4209-a785-acd56f4a656c" idref="dc618cf6-e485-4d80-9088-f97e0fd46f39" name="contact.html" url="contact.html">
+</file>
+<file id="bcc7991d-f124-42d8-83fe-92cada7a86dd" idref="dc618cf6-e485-4d80-9088-f97e0fd46f39" name="index.html" url="index.html">
+</file>
+<file id="cf822909-1a43-4df3-9a97-6b6e16a97f05" idref="dc618cf6-e485-4d80-9088-f97e0fd46f39" name="post.html" url="post.html">
+</file>
+<livefolder id="19b13b5f-c67d-4df7-8a50-394ccf4b54db" idref="dc618cf6-e485-4d80-9088-f97e0fd46f39" name="scripts" url="scripts">
+</livefolder>
+<livefolder id="4384ae80-6dfd-415d-a143-1eabdd9f5033" idref="dc618cf6-e485-4d80-9088-f97e0fd46f39" name="styles" url="styles">
+</livefolder>
+<livefolder id="6d4d6272-bdf0-4741-8c9c-5a0fa6a6473e" idref="dc618cf6-e485-4d80-9088-f97e0fd46f39" name="images" url="images">
+</livefolder>
+<preference-set idref="dc618cf6-e485-4d80-9088-f97e0fd46f39">
+  <string id="import_dirname">C:\inetpub\wwwroot\dev\glazkov</string>
+  <string id="import_exclude_matches">*.*~;*.bak;*.tmp;CVS;.#*;*.pyo;*.pyc;.svn;_svn;*%*;tmp*.html;.DS_Store;*.*scc;glazkov.kpf</string>
+  <boolean id="import_live">0</boolean>
+</preference-set>
+</project>

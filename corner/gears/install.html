@@ -1,0 +1,19 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+    <title>Install Bookmarklet</title>
+    <script>
+    
+	function invokeToRead(){
+    if(window.google&&google.gears){s(google.gears.factory);}else{var f;if(typeof GearsFactory!='undefined'){f=new GearsFactory();}else try{f=new ActiveXObject('Gears.Factory');}catch(e){var t='application/x-googlegears';if(navigator.mimeTypes[t]){f=document.createElement('object');f.style.display='none';f.width=0;f.height=0;f.type=t;document.documentElement.appendChild(f);}}f && s(f);}function s(f){try{var p=f.create('beta.workerpool','1.1');p.onmessage=function(m,id,o){console.log('response', m, id, o)};p.sendMessage(document.documentElement.innerHTML,p.createWorkerFromUrl('http://zen/build?dev/micro-wallet/scripts/service'));}catch(e){console.log(e);}}
+    }
+    
+    </script>
+</head>
+<body>
+    <a href="javascript:(function(){if(window.google&&google.gears){s(google.gears.factory);}else{var f;if(typeof GearsFactory!='undefined'){f=new GearsFactory();}else try{f=new ActiveXObject('Gears.Factory');}catch(e){var t='application/x-googlegears';if(navigator.mimeTypes[t]){f=document.createElement('object');f.style.display='none';f.width=0;f.height=0;f.type=t;document.documentElement.appendChild(f);}}f && s(f);}function s(f){try{var p=f.create('beta.workerpool','1.1');p.onmessage=function(m,id,o){console.log('response', m, id, o)};p.sendMessage(document.documentElement.innerHTML,p.createWorkerFromUrl('http://zen/build?dev/micro-wallet/scripts/service'));}catch(e){console.log(e);}}})();">To Read</a>
+</body>
+</html>
+
+
+javascript:(function(){var a=document,b=a.createElement('script'),w=window,g={};g.altWindow=w.open('','_blank','height=370px,width=720px,toolbar=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no');setTimeout(function(){g.altWindow.focus()},1000);function f(o){try{var d=new google.share.EmailWidget(g);d.display()}catch(e){if(o>20)return;setTimeout(function(){f(o+1)},o<10?1<<o:1000)}};b.src='http://www.google.com/s2/sharing/js?script=socialsharing&key=AAAAJ--gdtJYHC_fJptEAHT5Bf2PdeKAfHLIemt3spXhv2TTIuZqE2DXtQIUqr4S10z5ww';a.body.appendChild(b);f(0)})();

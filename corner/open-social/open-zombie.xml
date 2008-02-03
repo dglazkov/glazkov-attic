@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+	<ModulePrefs
+		title="OpenZombie"
+		description="Because there has to be a Zombie app, however poorly written!">
+		<Require feature="opensocial-0.5"/>
+		<Require feature="dynamic-height"/>
+	</ModulePrefs>
+	<Content type="html">
+	<![CDATA[
+		<script type='text/javascript' src='http://estradacms.com/opensocial/scripts/zombie.js'></script>
+		<div id="open-zombie-message"></div>
+		<div id="open-zombie-panel"></div>
+ 	]]>
+  </Content>
+</Module>
+

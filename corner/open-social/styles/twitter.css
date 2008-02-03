@@ -1,0 +1,48 @@
+#twitter-panel {
+	font-size: 12px;
+	line-height: 16px;
+}
+
+#twitter-panel a {
+	color: #00344F;
+	font-weight: bold;
+}
+
+#twitter-panel a.embedded {
+	font-weight: normal;
+}
+
+#twitter-panel ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#twitter-panel .l-left {
+	float: left;
+	width: 30px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	padding: 30px 0 0 0;
+	margin: 0 10px 10px 0;
+}
+
+#twitter-panel .l-right {
+	margin: 0 40px 0 0;
+}
+
+#twitter-panel .l-shelf {
+	clear: both;
+	border-bottom: solid 1px #eee;
+	margin: 0 0 10px 0;
+}
+
+#twitter-panel .l-right div,
+#twitter-panel .l-right abbr {
+	display: inline;
+	padding: 0 5px 0 0;
+}
+
+#twitter-panel abbr {
+	border-bottom: none;
+}

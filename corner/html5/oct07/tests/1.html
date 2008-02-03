@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>First Test</title>
+    <script type="text/javascript" src="/build?dev/html5/oct07/scripts"></script>
+    <script type="text/javascript">
+    
+        var d = openDatabase('testing');
+        d.transaction(function(tx) {
+            tx.executeSql('CREATE TABLE pages ( url TEXT PRIMARY KEY, last_checked INTEGER );', [], null, function(tx, error) {
+                console.error('unable to create table');
+            });
+            tx.executeSql('INSERT INTO pages VALUES(?,?)', [ 'http://google.com', 0 ]);
+            tx.executeSql('SELECT * FROM pages', [], function(tx, rows) {
+                console.log(rows);
+            });
+            
+        }, function() {
+            console.error('an error occured');
+        })
+    
+    </script>
+</head>
+<body>
+    <h1>This is the first test</h1>
+</body>
+</html>
