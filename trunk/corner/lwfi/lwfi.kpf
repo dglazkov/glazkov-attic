@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Komodo Project File - DO NOT EDIT -->
+<project id="3d5b2cee-c759-4675-897b-f29fd787a0a5" kpf_version="4" name="lwfi.kpf">
+<preference-set idref="3d5b2cee-c759-4675-897b-f29fd787a0a5">
+  <string id="import_exclude_matches">*.*~;*.bak;*.tmp;CVS;.#*;*.pyo;*.pyc;.svn;_svn;*%*;tmp*.html;.DS_Store;*.*scc</string>
+  <boolean id="import_recursive">1</boolean>
+  <boolean id="import_live">1</boolean>
+  <string id="import_type">useFolders</string>
+  <string id="mappedPaths"></string>
+  <string id="import_include_matches"></string>
+  <string id="javascriptExtraPaths"></string>
+</preference-set>
+</project>

@@ -1,0 +1,93 @@
+
+	body {
+		background-color: #fff;
+		font-family: Georgia, serif;
+		font-size: 14px;
+	}
+	
+	#help, #credits {
+		line-height: 19px;
+	}
+	
+	
+	h1 {
+		font-weight: normal;
+	}
+	
+	form {
+		margin: 0 310px 0 0;
+		padding: 0;
+		zoom: 1;
+	}
+	
+	#results {
+		width: 300px;
+		padding: 0 0 0 10px;
+		float: right;
+		font-family: "Lucida Sans Unicode", Helvetica, sans-serif;
+		font-size: 12px;
+	}
+	
+	#credits {
+		clear: both;
+	}
+	
+	#input, #result-list {
+		margin: 5px 0 0 0;
+		height: 400px;
+	}
+	
+	#input {
+		display: block;
+		width: 100%;
+		border: 1px solid #ccc;
+	}
+	
+	.auto-clear {
+		padding: 0 0 0 5px;
+	}
+	
+	#result-list {
+		overflow: auto;
+		padding: 0;
+		list-style: none;
+	}
+	
+	#result-list li {
+		background-repeat: no-repeat;
+		background-position: 0 2px;
+		padding: 2px 0 2px 20px;
+		border-top: solid #efefef 1px;
+		zoom: 1;
+	}
+	
+	#result-list li .type {
+		position: absolute;
+		left: -200px;
+		top: 0;
+	}
+	
+	#result-list .log {
+		background-image: url(../images/comment.png);
+	}
+	
+	#result-list .info {
+		background-image: url(../images/information.png);
+	}
+	
+	#result-list .error {
+		background-image: url(../images/exclamation.png);
+	}
+	
+	#result-list .warn {
+		background-image: url(../images/error.png);
+	}
+	
+	#result-list .debug {
+		background-image: url(../images/bug.png);
+	}
+	
+	#result-list .database {
+		background-image: url(../images/database.png);
+		color: #999;
+	}

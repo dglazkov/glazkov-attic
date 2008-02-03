@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Komodo Project File - DO NOT EDIT -->
+<project id="8bbfdf0d-dbb9-4774-b67a-09dbf504307c" kpf_version="4" name="flickr-api.kpf">
+<livefolder id="784fab44-13ee-42d2-a7fd-b663df9bb932" idref="8bbfdf0d-dbb9-4774-b67a-09dbf504307c" name="scripts" url="scripts">
+</livefolder>
+<livefolder id="58605a9e-1ad2-4bd8-bdc1-386e66524348" idref="8bbfdf0d-dbb9-4774-b67a-09dbf504307c" name="styles" url="styles">
+</livefolder>
+<livefolder id="5be67e2b-a254-4e0b-80e6-40986b275a2f" idref="8bbfdf0d-dbb9-4774-b67a-09dbf504307c" name="tests" url="tests">
+</livefolder>
+<livefolder id="9e5649c3-06ca-43d9-8c75-683f476712e4" idref="8bbfdf0d-dbb9-4774-b67a-09dbf504307c" name="images" url="images">
+</livefolder>
+<preference-set idref="8bbfdf0d-dbb9-4774-b67a-09dbf504307c">
+  <boolean id="import_live">0</boolean>
+</preference-set>
+</project>

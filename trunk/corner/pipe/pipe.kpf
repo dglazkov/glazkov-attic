@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Komodo Project File - DO NOT EDIT -->
+<project id="900625e2-7698-4e2d-bac5-4639d482b3d8" kpf_version="4" name="pipe.kpf">
+<preference-set idref="900625e2-7698-4e2d-bac5-4639d482b3d8">
+  <string id="import_type">useFolders</string>
+  <string id="import_exclude_matches">*.*~;*.bak;*.tmp;CVS;.#*;*.pyo;*.pyc;.svn;_svn;*%*;tmp*.html;.DS_Store;*.*scc</string>
+  <boolean id="import_recursive">1</boolean>
+  <string id="import_include_matches"></string>
+  <boolean id="import_live">1</boolean>
+</preference-set>
+</project>

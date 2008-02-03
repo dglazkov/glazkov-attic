@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>Blog</title>
+		<meta name="verify-v1" content="zxlfmaEbEL9f3Fv+jFEa9fHNKRjXVD+uqlvXQP9KL50=" />
+		<link href="http://feeds.feedburner.com/DimitriGlazkov/" rel="alternate" type="application/rss+xml"></link>
+		<link href="styles/screen.css" rel="stylesheet" media="screen" type="text/css"></link>
+	</head>
+	<body>
+		<form method="post" id="form" action="/blog/Default.xhtml">
+			<div>
+			<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUBMGRkj5cmEE7K71jwAQ3T5T3Y9pvHaO8=" />
+			</div>
+			<div id="titling" class="content-area">
+				<h1 class="page">Blog</h1>
+			</div>
+			<div id="extensions" class="content-area">
+				<div id="discussion" class="extension-content"><div class="view"><div class="Posts"><ul class="Segments"><li class="previous">
+                      Previous
+                    </li><li class="segment"><strong>1</strong></li><li class="segment"><a href="http://glazkov.com/blog/?g.seg.posts=1">2</a></li><li class="segment"><a href="http://glazkov.com/blog/?g.seg.posts=2">3</a></li><li class="segment"><a href="http://glazkov.com/blog/?g.seg.posts=3">4</a></li><li class="segment"><a href="http://glazkov.com/blog/?g.seg.posts=4">5</a></li><li class="segment"><a href="http://glazkov.com/blog/?g.seg.posts=5">6</a></li><li class="segment"><a href="http://glazkov.com/blog/?g.seg.posts=6">7</a></li><li class="segment"><a href="http://glazkov.com/blog/?g.seg.posts=7">8</a></li><li class="segment"><a href="http://glazkov.com/blog/?g.seg.posts=8">9</a></li><li class="segment"><a href="http://glazkov.com/blog/?g.seg.posts=9">10</a></li><li class="next"><a href="http://glazkov.com/blog/?g.seg.posts=1">
+                      Next
+                    </a></li></ul><ol><li class="entry"><h4 class="title"><a href="post.html">Margin Marks UI Concept</a></h4><div class="description"><h3>Summary</h3>
+<p>Margin marks is a user interface concept that aims to expose <a href="http://microformat.org/">microformats</a> on a web page in a way that's intuitive, useful, and positionally relevant, yet has minimal interaction with the page presentation. This concept can be also extended to emphasize other, typically invisible aspects of the content, such as fragment identifiers, classes and even to letting the users add their own marks. You can go ahead and just <a href="http://flickr.com/photos/dglazkov/sets/72157601860335196/">look at the pictures</a> if you don't feel like reading.
+</p>
+<h3>Motivation</h3>
+<p>I've been following the thought process of microformats UI in <a href="http://wiki.mozilla.org/Firefox3">Firefox 3</a> as documented in <a href="https://addons.mozilla.org/en-US/firefox/addon/4106">Operator</a>'s
+functionality, <a href="http://blog.mozilla.com/faaborg">Alex</a>'s blog, and <a href="http://microformats.org/mailman/listinfo/microformats-discuss/">uf-discuss</a> list. It's been exciting to think about the power of microformats and its consumption potential being built into the browser, and as such the decisions about the user interface exposing this power are certainly quite heavy in weight. The greatest problem as it appeared to me was exposing content, marked up with microformats in a way that does not interfere with the page presentation, while at the same time providing comfortable and immediately useful experience for the users. Mike's current experiment, the Operator, has cool ideas and lots of configurable options, but it still left me wanting something more. Primarily, my holy grail was positional relevance of the consumer user interface to the actual marked-up content. Looking at pages like <a href="http://twitter.com/">twitter.com</a> and my own blog comments, I realized that a page with a lot of microformatted content practically begs for positional correlation between the Operator's
+action drop-downs and the page itself. That's how the margin marks came along.
+</p>
+<h3>General Concept</h3>
+<p>The margin bar is a vertical pane that is shown on one side of the browser window. Whether it's on the left or on the right may be configurable by the user. The contents of the margin bar are vertically attached to the page, so
+that when the page contents are scrolled, the margin bar contents are scrolled as well. Visually, it's an extra margin to the page that is controlled by the browser, not page presentation (hence, the <dfn>margin bar</dfn>). The margin bar can be visible or hidden, as desired by the user. Naturally, <q>open</q> should be the default state.
+</p>
+<p>The margin bar is narrow, with minimal impact on the width of the browser window. The information provided is hint-like, abbreviated down to icons and perhaps numeric indicators. Visually, it's a <a href="http://flickr.com/photos/dglazkov/1323814472/">set of glyphs</a>, each positioned alongside the start of relevant content fragment. These glyphs are <dfn>margin marks</dfn>. Margin mark identifies vertical position of a content fragment in the margin bar. The mark can be visually presented as an arrow or any other sort of pointer with an icon on it.
+</p>
+<h3>Grouping Marks</h3>
+<p>In situations, when there are more than one marks occupying the same space, the marks are combined into one mark, visually identifying multiple items, together with the number of combined marks. The icon, associated with the top-most mark is displayed.
+</p>
+<h3>Mark Actions</h3>
+<p>Each mark may have one or more actions, associated with it, with one action designated as default. Configuring the actions is part of the browser preferences UI. It is possible that the action may have an icon associated with
+it. For instance, if the action is to add event to Microsoft Outlook calendar, the Outlook icon is displayed in the mark, rather than a generic address card. However, this may introduce more confusion, given the diversity of platforms and applications that may be potentially invoked by the users.
+</p>
+<h3>Mouse Navigation</h3>
+<p>When the user hovers the mouse over the mark, the <a href="http://flickr.com/photos/dglazkov/1323813520/">details window is revealed</a>. Moving the mouse off the mark closes the details window. Clicking on the mark invokes the default action. Visually, default action is placed at the top of the details window, so hovering and clicking are intuitively connected: the user does not need to make any further mouse movements to invoke the default action. Hovering the mouse over a group opens the group: the marks in the group are lined up in the bar vertically, allowing the user to explore the marks within the group. Admittedly, this is not very elegant. Perhaps you could come up with a better idea.
+</p>
+<h3>Keyboard Navigation</h3>
+<p>Margin bar participates in the browser chrome tab cycle, preferably placed immediately before the page. Also, there should be a keyboard shortcut to bring keyboard focus into the margin bar. Once the bar acquires keyboard focus, the top-most mark gains it automatically. Then, the following keyboard events are recognized (this list is just a suggestion and food for thought):
+</p>
+<ul>
+  <li><kbd>Down Arrow</kbd> &mdash; move to next mark</li>
+  <li><kbd>Shift-Down Arrow</kbd> &mdash; move to next mark within the group. If at the end of the group, move to next mark</li>
+  <li><kbd>Up Arrow</kbd> &mdash; move to previous mark</li>
+  <li><kbd>Shift-Up Arrow</kbd> &mdash; move to previous mark within the group. If at the beginning of the group, move to previous mark</li>
+  <li><kbd>Space</kbd> &mdash; scroll the page down and jump to the first mark in the visible span of the page</li>
+  <li><kbd>Enter</kbd> &mdash; invoke mark/note action</li>
+  <li><kbd>Tab</kbd> &mdash; go to the browser window</li>
+  <li><kbd>Shift-Tab</kbd> &mdash; go to the previous item in the tab cycle</li>
+</ul>
+<h3>Aural Presentation</h3>
+<p>Ideally, when used with a browser that is equipped with voice-reading software,
+such as JAWS, the user interaction should occur as follows:
+</p>
+<ul>
+  <li>When the margin bar gains focus, the reader announces: <q>X marks on the page. Mark One. Type: Address Card. Name: Rulon Oboev...</q> and continues reading the mark contents</li>
+  <li>Using arrows, the user can move between the marks. Upon each move, the reader announces the sequential number of the mark, it's type and contents.</li>
+  <li>After reading contents, the reader announces each action as a link.</li>
+  <li>In addition to standard actions, the "Go to content on page" action is added after the default action.</li>
+</ul>
+<h3>Microformats Marks</h3>
+Whenever microformat markup is encountered on page, a mark is placed on the bar at the current vertical position of the starting element of the markup fragment. Should the position change as a result of DOM operation or changing geometry of the page, the mark changes the position accordingly. This may be difficult to implement, so an acceptable solution would be to detect detachment (position change) and somehow change the appearance of the mark to no longer "point" to a place in content. Each mark contains a distinctive icon of the corresponding microformat (address card icon for an <a href="http://microformats.org/wiki/hcard">hCard</a>, calendar icon for <a href="http://microformats.org/wiki/hcalendar">hCalendar</a> event, etc.).
+</p>
+<p>When hovered over the microformat data is presented as a complete note, perhaps using a metaphor, relevant to the specific microformat. For example, the hCard could be rendered as a Rolodex card, and an <a href="http://microformats.org/wiki/hatom">hAtom</a> entry would be probably best presented as a yellow-pad note, a common visual hint of blog post.
+</p>
+<h3>Other Types of Marks</h3>
+<p>One can also easily extrapolate the use of the margin mark to other types of page metadata. For instance, a mark with a feed icon may be placed whenever a feed is encountered on the page. Usually, these would be at the top, but should there be an a element with the type attribute of <code>application/rss+xml</code>, the mark would be placed accordingly there, too.
+</p>
+<p>Also, the marks could be used to provide a UI to unobtrusively identify HTML elements with an id attribute (HTML fragments). Other uses may include tracking a set of user-specified elements, attribute values, or content (mark everything containing "microformats" on the page).
+</p>
+<h3>User Marks</h3>
+<p>It would be really interesting to offer the users to add their own marks to the page, perhaps by clicking (or right-clicking) on the bar, as a way to annotate the page. As the users add a new mark, they can fill in the fields in the provided dialog box. Typically, this would be a simple note (an hAtom entry), but one can envision adding reminders (an hCalendar event), contact information (an hCard), perhaps re-purposing non-microformatted content from the page), or other types of content. After the mark is added, it is persisted within the browser.
+</p>
+<p>Persistently and reliably identifying is a potential challenge of user mark implementation. Since it is not known when or how the content of the page will change upon next visit, a visual equivalent of <q>um.. somewhere around here</q> may be applied: if the browser can not identify the precise location of the user mark, an extra hint (a question mark, maybe, or a spatial glow/spread to signify uncertainty in position) is added to the mark. When this hint is present, the point line is not displayed.
+</p>
+<h3>Other Random Thoughts</h3>
+<p>Taking one step further brings us to the ability of the browser to communicate with the server when new user marks are added or deleted. Using some simple detection scheme, a browser could recognize that the page accepts mark updates and send newly added marks to the server transparently. An existing blog comment API with some positional extensions could be used or a new protocol could be proposed. I'll let you figure out what would be best here.
+</p>
+<p>When the margin mark is hovered over or has focus, an additional visual hint could be introduced: a point on the page where the relevant content begins and a horizontal line, connecting it with the mark, like a laser pointer. This could <em>really</em> address the issues of positional relevance.
+</p>
+<p>When the page has more microformatted content beyond the current scroll view, a teaser hint could be shown at the bottom or top of the margin bar (an arrow of some sort?) to indicate that there's more crunchy markup above or bellow the currenty visible portion of the page.
+</p>
+<p>The margin bar could also have an expanded state, in which it shows details along with the marks. I originally had this in the concept, but I instinctively felt it makes the whole thing too complicated.
+</p>
+<h3>Inspiration, Disclaimer, and Licensing</h3>
+This concept is inspired by the entire super-awesome premise of microformats and the great people around them, by the <a href="http://blog.mozilla.com/faaborg/">Alex Faaborg</a>'s
+<a href="http://blog.mozilla.com/faaborg/2007/02/04/microformats-part-4-the-user-interface-of-microformat-detection/">post</a> on Firefox 3 microformat UI concepts, <a href="http://www.kaply.com/weblog/">Mike
+Kaply</a>'s ground-breaking <a href="https://addons.mozilla.org/en-US/firefox/addon/4106">Operator</a> extension, and quite obviously, <a href="http://www.jackslocum.com/blog/">Jack Slocum</a>'s blog comment system.
+</p>
+<p>I am not a browser developer and honestly do not know how much effort would it take to implement something like this. I did take a brief stroll in a Mozilla trunk and soon realized that one cannot evaluate implementation feasibility by just taking a brief stroll through the code of a browser. I am positive this can be done completely in Javascript, and thus assume that the feasibility is pretty high.
+</p>
+<p>Should anyone find this concept, in full or in parts useful, inspiring, and/or worthy of implementation, I release it as <a href="http://creativecommons.org/licenses/publicdomain/">public domain</a>. I think that it would be awfully splendid of you to mention my name, even if somewhere deep in the comments of your shiny new toy. Or maybe bake me a low-carb cake. Or a <a href="http://www.apple.com/macbookpro/">MacBook Pro</a>. But I won't insist.
+</p></div><div class="post-data"><span class="posted">
+          posted on
+          <abbr class="posted" title="9/4/2007 3:28:00 PM">09/04/07</abbr></span>
+        by
+        <span class="author">Dimitri Glazkov</span></div><div class="comments"><a href="margin-marks/#comments"><span class="comment-count">0</span>
+          comments
+        </a></div></li><li class="entry"><h4 class="title"><a href="horrific-markup-live-spaces/">The Horrific Markup of Live Spaces and Possible Explanation of Dare not Getting Microformats</a></h4><div class="description"><p>It's a Friday surprise! After reading this <a title="Microformats are not an API" href="http://www.25hoursaday.com/weblog/CommentView.aspx?guid=799a825c-32f2-4de2-a8f0-48ea6ff5c672#commentstart">post</a> by <span class="vcard"><a class="url fn" href="http://www.25hoursaday.com/" rel="colleague">Dare Obasanjo</a></span>,
+I dutifully followed the links in the article. Upon stumbling on his Live Spaces <a href="http://carnage4life.spaces.live.com/friends/">friends page</a>, I instinctively hit <kbd>Ctrl+U</kbd> to peek at the <a title="Flickr screenshot of Dare's Friends page source code on Live Spaces" href="http://flickr.com/photos/dglazkov/1226793431/">source code</a>. Ow! Ow! My eyes! My tired bespectacled eyes!
+</p>
+<p>Dear readers (yes, all 2 of you -- <em>Privet, Mom</em>!), let's all hold hands and stand in a circle. Let's promise ourselves to never look at that pitiful, congealed elephant-man, <em>malignant-growth</em> of a code ever again. It's just better that way. And you, Spaces developers... Well, shame on you. You should know better than dumping this crap on the Web.  No wonder poor Dare can't get <q>screen-scraping</q> out of his mind: he probably hasn't even seen good semantic markup, much less realized its benefits. Have <em>you</em>?
+</p>
+<p>Oh, and Dare, bad call on the <a title="Facebook API: friends.get" href="http://developer.facebook.com/documentation.php?v=1.0&method=friends.get">friends.get</a> example. You should probably use <a title="Facebook API: fql.query" href="http://developer.facebook.com/documentation.php?v=1.0&method=fql.query">fql.query</a> to get something more useful than a list of friend <code>UID</code>s for any sort of social network portability. But I'll leave you alone with your point of view on what can and cannot be an API.
+</p></div><div class="post-data"><span class="posted">
+          posted on
+          <abbr class="posted" title="8/24/2007 9:50:49 PM">08/24/07</abbr></span>
+        by
+        <span class="author">Dimitri Glazkov</span></div><div class="comments"><a href="horrific-markup-live-spaces/#comments"><span class="comment-count">0</span>
+          comments
+        </a></div></li><li class="entry"><h4 class="title"><a href="ftw/">Framework for Tomorrow's Web</a></h4><div class="description"><p>
+I am trying something new here. Instead of blabbering and shaking wrinkled fists like a cranky old man, I'll turn my lemon into something with a bit more kinetic oomph. Like a <em>two-by-four</em>. Kidding! Kidding...
+</p>
+<p>
+If you're like me, you're fascinated with Web frameworks. You've dabbled in all of them, finding likes and quirks, but ultimately walking away wanting more. If you're like me, you've kept a mental wishlist of what tomorrow's Web framework should be like. Here's mine, in no particular order:
+</p>
+<ul>
+	<li id="speaks-web-natively">Framework for Tomorrow's Web (<dfn>FTW</dfn> for short) <strong>Speaks Web natively</strong>. No extra work is needed by a developer to take advantage of the full <a title="RFC2616" href="http://www.ietf.org/rfc/rfc2616.txt">HTTP spec</a> <a title="REST" href="http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm">potential</a>. <code>GET</code>s are idempotent. <code>POST</code>s are free of <a href="http://msdn2.microsoft.com/en-us/library/system.web.ui.webcontrols.linkbutton(VS.71).aspx" title="Oy!">abuse</a>. <a href="http://www.mnot.net/blog/2007/08/07/etags">Etags</a> are meaningful. Did I mention they just work?
+	</li>
+	<li id="stateless"><acronym title="Framework for Tomorrow's Web">FTW</acronym> is intentionally and unapologetically <strong>stateless</strong>. On the other end of a request, there is a representation of a resource whose change is strictly a function of time. Personalization and other shnazzy Web 2.Poo junk are accomplished by client-side composition.
+	</li>
+	<li id="n-plus-1"><acronym title="Framework for Tomorrow's Web">FTW</acronym> is architected <strong>outside of a single server boundaries</strong>. <a href="http://www.ics.uci.edu/~rohit/ARRESTED-ICSE.pdf" title="ARRESTED PDF">Parallelism</a> and <a href="http://bitworking.org/news/218/N-1" title="N &gt; 1">massive scalability</a> are part of the deal. Spreading your application across several nodes does not require redesign or even changing a line of code. Perhaps even, the framework does it automatically, expanding or contracting its physical machine span as a reaction to traffic.
+	</li>
+	<li id="automated-caching">Just like we grew out <code>malloc</code>s and <code>free</code>s, with FTW, we <strong>no longer worry about caching</strong>. Caching is effective and completely behind the scenes. FTW developer does not know anything about dependencies, re-syncing, or sliding expiration scales. Caching just happens. No <a href="http://www.danga.com/memcached/" title="memcached">tinkering</a> is necessary.</li>
+	<li id="respect-markup"><acronym title="Framework for Tomorrow's Web">FTW</acronym> <strong>respects the markup</strong>. If asked to produce xHTML, it outputs minimalist semantic <a href="http://www.w3.org/TR/xhtml-basic/" title="XHTML Basic 1.1">markup</a> that is free of presentational dribble. It may actually <em>prevent</em> the developer from tossing crap onto the representation.
+	</li>
+	<li id="dynamic">In <acronym title="Framework for Tomorrow's Web">FTW</acronym>, you develop using a <strong>a strongly, dynamically typed language</strong>. Ok, this one is not really a <em>tomorrow's</em> feature by most accounts, but we <abbr title="Microsoft.NET">.NET</abbr> folks are still calling them <a href="http://www.asp.net/downloads/futures/" title="ASP.NET Futures">futures</a>.
+	</li>
+	<li id="two-part">The framework consists of <strong>two integral parts</strong>: the server-side and the client-side. The client-side part is treated with the same respect as the server-side. They're equals, except one manages content, and the other manages presentation. In this respect, <acronym title="Framework for Tomorrow's Web">FTW</acronym> is not a hodge-podge of multiple technologies that spans several disparate projects.
+	</li>
+	<li id="separation-of-concerns"><a href="http://glazkov.com/blog/agony-of-thousand-puppies/" title="GWT and Now Script#: The Agony of a Thousand Puppise">Layers of abstraction</a> are drawn along, not across the separation of concern. In fact, <acronym title="Framework for Tomorrow's Web">FTW</acronym> <strong>manages separation of concerns</strong>. It is developed to support <a href="http://alistapart.com">best practices</a>, unified into an intuitive, thorough methodology. You know, the one that doesn't begin with <q>'spose you want to build a Web form</q>.
+	</li>
+	<li id="graph">Finally, the <acronym title="Framework for Tomorrow's Web">FTW</acronym>'s architects realize that Web is most naturally <strong>modeled as a graph</strong>. Instead of messing with tables and rows, the developer creates representations and establishes relationships between them, never departing from hypermedia to another the data abstraction.  <a href="http://www.25hoursaday.com/weblog/2006/02/21/SQLDatabasesAndInternetScaleApplications.aspx">Dare</a> I predict the end of reign for tabular data, my <acronym title="Structured Query Language">SQL</acronym> homeboys? Meh. We'll see.
+	</li>
+</ul>
+<p>I could probably list more items, but these seem to capture the spirit. Speaking of spirits, it's <a href="http://www.urbandictionary.com/define.php?term=Beer+O'clock" title="Beer O'clock">Friday night</a>. Enough writing. Thank you for reading. Y'all come back now, ya hear?</p></div><div class="post-data"><span class="posted">
+          posted on
+          <abbr class="posted" title="8/17/2007 9:05:04 PM">08/17/07</abbr></span>
+        by
+        <span class="author">Dimitri Glazkov</span></div><div class="comments"><a href="ftw/#comments"><span class="comment-count">0</span>
+          comments
+        </a></div></li><li class="entry"><h4 class="title"><a href="javascript-makes-me-giddy/">Javascript Makes Me Giddy</a></h4><div class="description"><p>
+I must be a simple man, 'cuz things like <a href="http://glazkov.com/resources/files/context-prototype.html" title="Example of Context Prototype">this</a> in Javascript make me slap my sides, and go <em>Hot damn!</em>
+</p>
+<pre><code class="javascript">
+
+		function Context(base) {
+			if (base) {
+				var c = function(base) {
+					this.base = base;
+				}
+				c.prototype = base;
+				return new c(base);
+			}
+			return new function() {
+				// standard context functions
+				this.get = function() {};
+				// ...
+			}
+		}
+		
+		// then
+		var a = Context();
+		// do things with "a"
+		var b = Context(a);
+		// "b" inherits "a" as context:
+		// * changes to "a" make it to "b"
+		// * changes to "b" don't make it to "a"
+		var c = Context(b);
+		// you get the picture ...
+		
+</code></pre>
+<p>
+I don't know what's more exciting here, the "no-much-to-it-ness" or the "bang-for-buck-ness", but every time I get to work with Javascript, I am excited about the actual process of crafting code.
+</p></div><div class="post-data"><span class="posted">
+          posted on
+          <abbr class="posted" title="8/12/2007 1:11:54 PM">08/12/07</abbr></span>
+        by
+        <span class="author">Dimitri Glazkov</span></div><div class="comments"><a href="javascript-makes-me-giddy/#comments"><span class="comment-count">0</span>
+          comments
+        </a></div></li><li class="entry"><h4 class="title"><a href="ecmascript-4-on-server/">ECMAScript 4 on the Server</a></h4><div class="description"><p>Let's imagine there is a viable, publicly available <a href="http://developer.mozilla.org/es4/spec/spec.html">ECMAScript4</a> (that's Javascript 2.0, y'all) <a href="http://www.mozilla.org/projects/tamarin/">implementation</a> that runs on the server (is there, by the way?), that can be used instead of Ruby, Python, PHP, C# etc. Wouldn't it be great?</p>
+<p>My first reaction is <em>yes!</em>. Actually more like <em>you betcha</em>, my goatee-chinned, mojito-drinking, flip-flop-wearing blog-buddy (that's how I imagine you, anyway), as there would be one less language to learn for the developer.</p>
+<p>But then, I am wondering if the developers would be more prone to get their wires crossed, switching from client to server context inside of the same language?</p>
+<p>What do you think? Is less more in this particular case? Is having a separate language for the server side <em>the right thing</em> to do?</p>
+<p>Send your answers with a self-addressed and stamped envelope. Or you can just use comments. Or your blog. Or <a href="http://twitter.com/dglazkov/">Twitter</a>. Or <a href="http://www.facebook.com/profile.php?id=501592997">Facebook</a>. Or <a href="http://pownce.com/dglazkov/">Pownce</a>. Whatever. Sheesh, this social networking thing is a full-time job.</p></div><div class="post-data"><span class="posted">
+          posted on
+          <abbr class="posted" title="8/10/2007 10:01:45 AM">08/10/07</abbr></span>
+        by
+        <span class="author">Dimitri Glazkov</span></div><div class="comments"><a href="ecmascript-4-on-server/#comments"><span class="comment-count">1</span>
+          comments
+        </a><div class="lastCommentPosted">
+            Last comment on
+            <abbr class="posted" title="8/10/2007 10:47:40 AM">08/10/07</abbr></div></div></li><li class="entry"><h4 class="title"><a href="client-side-performance-tip/">Client-side Performance Tip</a></h4><div class="description"><p>I wanted to mention this for a while, but only now found a bit of time. This is <em>very</em> important.</p>
+
+	<p>When a page loads, it first processes all child elements in the <kbd>head</kbd> element of the page. Until all child elements are processed, no rendering of the page will occur. So, first important bit of information is: <strong>the page won’t start showing anything until all script and link elements in its head are requested and loaded</strong>.</p>
+
+	<p>Conforming to <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec8.html#sec8.1.4">RFC2616</a>, all user agents (including Firefox, IE, Opera, and Safari) will only make <em>2</em> HTTP requests at a time to load all external assets for the page. Which means that this is not a parallel operation, and regardless of how fast the server is, the visible performance of the page will suffer if there are lots of scripts and links declared in the <kbd>head</kbd> element of the page. So, the performance tip is: <strong>at all costs, minimize the number of items in the head element of the page</strong>.</p></div><div class="post-data"><span class="posted">
+          posted on
+          <abbr class="posted" title="7/26/2007 3:09:12 PM">07/26/07</abbr></span>
+        by
+        <span class="author">Dimitri Glazkov</span></div><div class="comments"><a href="client-side-performance-tip/#comments"><span class="comment-count">0</span>
+          comments
+        </a></div></li><li class="entry"><h4 class="title"><a href="1198/">Goodbye, Subtext</a></h4><div class="description"><p>They say: <q cite="http://www.phrases.org.uk/bulletin_board/5/messages/1379.html">all good things must come to an end</q>. What a load of crap! It's like saying: <q>only bad things last forever</q>. Perhaps a more accurate statement would be: <q>some good things occasionally come to an end</q>. But that's a heckuva lot less dramatic and you know us, humans -- we love drama. But I digress...</p>
+<p>One of these "some good things" is my membership in the <a href="http://subtextproject.com/">Subtext</a>, the open-source project masterminded by hacker extraordinaire <span class="vcard"><a class="url fn" rel="friend" href="http://haacked.com">Phil</a></span> <a href="http://haacked.com/archive/2005/05/04/2953.aspx">back in 2005</a>. The <q>little grey submarine that could</q> grew nicely since then into a complete blogging platform with a rowdy gang of devout followers.</p>
+<p>I was one of the original members of the project and even somewhat contributed to it early in the game. For the last year or so, I've been a bit more of a wall flower, kind of like one of 'em famous folks in on a board of directors who never show up and when they do, they desperately try to evade death of boredom by picking on their teeth or playing wastebasketball. Except, y'all know I am not famous. Especially <a href="http://www.flickr.com/photos/alisa7248/5674891/">not</a> for the stuff that would get me a seat on a board of directors. That's because Phil was too kind to strike me out of the roster. You are too kind, Phil. You are too kind.</p>
+<p>Luckily, over this weekend I had made the final step that gives Phil and the Subtext team a superb reason for giving me the eviction notice: I am no longer running this site on Subtext. Not even a pre-beta 1.0 Nautilus. Yessiree-bob, this site is now powered by the Estrada Engine, the latest and greatest product offering of the company at which yours truly works. I was talking about converting <a href="http://glazkov.com/blog/why-cobblers-kids-go-barefoot/">three years ago</a> (that's before Subtext!), but only now got a chance to catch up and do the move.</p>
+<p>Don't take me wrong. I love Subtext. I think this blogging engine, rooted in Scott Watermasysk's creation is a great choice for individual or small-group blogging on a great platform. But the boy's gotta eat his own dogfood. If you write the code, you have to enjoy (or suffer) using it. So here I am, sitting on unpacked boxes in a new empty virtual house, walls unpainted and all. It'll be good. Just needs a little lovin'.</p></div><div class="post-data"><span class="posted">
+          posted on
+          <abbr class="posted" title="5/28/2007 9:14:47 PM">05/28/07</abbr></span>
+        by
+        <span class="author">Dimitri Glazkov</span></div><div class="comments"><a href="1198/#comments"><span class="comment-count">2</span>
+          comments
+        </a><div class="lastCommentPosted">
+            Last comment on
+            <abbr class="posted" title="5/29/2007 12:20:05 AM">05/29/07</abbr></div></div></li></ol><ul class="Segments"><li class="previous">
+                      Previous
+                    </li><li class="segment"><strong>1</strong></li><li class="segment"><a href="http://glazkov.com/blog/?g.seg.posts=1">2</a></li><li class="segment"><a href="http://glazkov.com/blog/?g.seg.posts=2">3</a></li><li class="segment"><a href="http://glazkov.com/blog/?g.seg.posts=3">4</a></li><li class="segment"><a href="http://glazkov.com/blog/?g.seg.posts=4">5</a></li><li class="segment"><a href="http://glazkov.com/blog/?g.seg.posts=5">6</a></li><li class="segment"><a href="http://glazkov.com/blog/?g.seg.posts=6">7</a></li><li class="segment"><a href="http://glazkov.com/blog/?g.seg.posts=7">8</a></li><li class="segment"><a href="http://glazkov.com/blog/?g.seg.posts=8">9</a></li><li class="segment"><a href="http://glazkov.com/blog/?g.seg.posts=9">10</a></li><li class="next"><a href="http://glazkov.com/blog/?g.seg.posts=1">
+                      Next
+                    </a></li></ul></div></div></div>
+			</div>
+			<div id="feeds" class="content-area">
+				<div id="feed-1192-1" class="feed global"><div class="links"><ul><li><a href="index.html">Home</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li><li><a href="http://feeds.feedburner.com/DimitriGlazkov">RSS</a></li></ul></div></div>
+			</div>
+
+		</form>
+	</body>
+</html>
