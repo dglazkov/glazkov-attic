@@ -59,7 +59,7 @@
             
             function poll() {
                 var request = google.gears.factory.create('beta.httprequest', '1.0');
-                request.open('HEAD', url);
+                request.open('HEAD', url + String(Math.floor(Math.random()*10000)));
                 request.onreadystatechange = function() {
                     if (request.readyState == 4) {
                         try {
