@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Multiple dl, ol, and ul elements -->
+<ol class="xoxo">
+	<li>multiple dls
+		<dl>
+			<dt>description</dt>
+			<dd>This is a description</dd>
+		</dl>
+		<dl>
+			<dt>term 1</dt>
+			<dd>definition 2</dd>
+			<dt>term 2</dt>
+			<dd>definition 2</dd>
+		</dl>
+	</li>
+	<li>multiple lists 1
+		<ol>
+			<li>stuff 1</li>
+			<li>stuff 2</li>
+		</ol>
+		<ul>
+			<li>non-XOXO list item 1</li>
+			<li>non-XOXO list item 2</li>
+		</ul>
+	</li>
+	<li>multiple lists 2
+		<ul>
+			<li>stuff 1</li>
+			<li>stuff 2</li>
+		</ul>
+		<ul>
+			<li>non-XOXO list item 1</li>
+			<li>non-XOXO list item 2</li>
+		</ul>
+	</li>
+	<li>all together now
+		<dl>
+			<dt>description</dt>
+			<dd>This is a description</dd>
+		</dl>
+		<ol>
+			<li>stuff 1</li>
+			<li>stuff 2</li>
+		</ol>
+		<ul>
+			<li>non-XOXO list item 1</li>
+			<li>non-XOXO list item 2</li>
+		</ul>
+		<dl>
+			<dt>term 1</dt>
+			<dd>definition 2</dd>
+			<dt>term 2</dt>
+			<dd>definition 2</dd>
+		</dl>
+	</li>
+</ol>

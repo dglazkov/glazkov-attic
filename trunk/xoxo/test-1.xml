@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Simple, like a blog-roll -->
+<ol class="xoxo">
+	<li><a href="http://microformats.org">Microformats</a></li>
+	<li><a href="http://openid.net">OpenID</a></li>
+	<li class="vcard" rel="met colleague"><a class="fn url" href="http://kevinmarks.com/">Kevin Marks</a></li>
+	<li><a type="image/png" href="http://microformats.org/img/2007/bookcoverdrop.png" title="Microformats: Empowering Your Markup for Web 2.0">Micoformats book cover</a></li>
+</ol>

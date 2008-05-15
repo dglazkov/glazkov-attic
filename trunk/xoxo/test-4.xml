@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Use of properties and special properties -->
+<ol class="xoxo">
+	<li>plain</li>
+	<li>with properties
+		<dl>
+			<dt>description</dt>
+			<dd>This is a description</dd>
+		</dl>
+		<ol>
+		  <li>Subject 1
+			<ol>
+				<li>subpoint a</li>
+				<li>subpoint b</li>
+			</ol>
+		  </li>
+		  <li>Subject 2
+			<ol compact="compact">
+				<li>subpoint c</li>
+				<li>subpoint d</li>
+			</ol>
+		  </li>
+		  <li>Subject 3
+			<ol>
+				<li>subpoint e</li>
+			</ol>
+		  </li>
+		</ol>	
+	</li>
+	<li>with special properties
+		<dl>
+			<dt>type</dt>
+			<dd>this does not have to be a Content-Type</dd>
+		</dl>
+	</li>
+	<li>
+		<dl>
+			<dt>text</dt>
+			<dd>text defined as special property, and it can now contain <em>markup</em></dd>
+			<dt>Apples To</dt>
+			<dd>Public</dd>
+		</dl>
+		<ol>
+			<li>stuff 1</li>
+			<li>stuff 2</li>
+		</ol>
+	</li>
+	<li>
+		<dl>
+			<dt>summary</dt>
+			<dd>this one's <var>text</var> value is <em>empty</em></dd>
+		</dl>
+	</li>
+	<li><a rel="bookmark" href="http://openid.net">OpenID</a>
+		<dl>
+			<dt>description</dt>
+			<dd>OpenID is an open, decentralized, free framework for user-centric digital identity.</dd>
+		</dl>
+	</li>
+</ol>
