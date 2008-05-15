@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Significance of order -->
+<ol class="xoxo">
+  <li>Subject 1
+    <ul>
+        <li>subpoint a</li>
+        <li>subpoint b</li>
+    </ul>
+  </li>
+  <li>Subject 2
+    <ol compact="compact">
+        <li>subpoint c</li>
+        <li>subpoint d
+			<ul>
+				<li>a sub-subpoint</li>
+				<li>another sub-subpoint</li>
+				<li>yet another sub-subpoint</li>
+				<li>sub-subpoint, in no particular order</li>
+			</ul>
+		</li>
+    </ol>
+  </li>
+  <li>Subject 3
+    <ol>
+        <li>subpoint e</li>
+    </ol>
+  </li>
+</ol>
